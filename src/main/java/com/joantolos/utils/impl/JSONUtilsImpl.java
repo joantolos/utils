@@ -19,10 +19,6 @@ public class JSONUtilsImpl implements JSONUtils {
         return new Gson().fromJson( json, c );
     }
 
-    public Object jsonToObject(String json, Type t){
-        return new Gson().fromJson( json, t );
-    }
-
     public ArrayList<Object> objectListJsonToObjectList(String objectListJSON){
         return new Gson().fromJson(objectListJSON, new TypeToken<ArrayList<Object>>() { }.getType());
     }

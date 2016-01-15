@@ -4,8 +4,6 @@ import com.google.common.io.Files;
 import com.joantolos.utils.FileUtils;
 import com.joantolos.utils.enums.FileErrorCode;
 import com.joantolos.utils.exception.FileManipulationException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.apache.poi.util.IOUtils;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +12,6 @@ import java.nio.charset.StandardCharsets;
 
 @Component
 public class FileUtilsImpl implements FileUtils {
-
-    private Logger logger = LoggerFactory.getLogger(FileUtilsImpl.class);
 
     public InputStream byteArrayToInputStream(byte[] byteArray){
         return new ByteArrayInputStream(byteArray);
@@ -105,21 +101,8 @@ public class FileUtilsImpl implements FileUtils {
     public void deleteFile(String path) {
         if(this.fileExist(path)) {
             File file = new File(path);
+            //noinspection ResultOfMethodCallIgnored
             file.delete();
-        }
-    }
-
-    public void logFile(String path){
-        logger.info("Trying to open file: "+path+" ... ");
-        System.out.println("Trying to open file: "+path+" ... ");
-        File file = new File(path);
-        if(file.exists()){
-            logger.info("*** FILE EXISTS ***");
-            logger.info("File name: "+file.getName());
-            logger.info("File absolute path: "+file.getAbsolutePath());
-            logger.info("File size: "+file.length());
-        }else{
-            logger.info("*** FILE DON'T EXISTS ***");
         }
     }
 

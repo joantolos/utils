@@ -38,7 +38,7 @@ public class StringManipulationException extends Exception {
 			case OK:
 				return "TILT: Should not get here.";
 			case STRING_LENGTH_OVERFLOW:
-				return String.format("Error: The provided string is not greater than "+this.errorParameter+" characters long.");
+				return "Error: The provided string is not greater than "+this.errorParameter+" characters long.";
 		}
 		return "";
 	}

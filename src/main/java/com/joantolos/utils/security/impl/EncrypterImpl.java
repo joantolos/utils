@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class EncrypterImpl implements Encrypter {
 
-    @Value("${security.key}")
-    private String securityKey;
+//    @Value("${security.key}")
+    private String securityKey = "security.key=allworkandnoplaymakesJackadullboy";
 
     public String encrypt(String plainText) {
         BasicTextEncryptor textEncryptor = new BasicTextEncryptor();

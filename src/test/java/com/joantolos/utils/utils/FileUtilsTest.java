@@ -8,8 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -23,7 +21,6 @@ import java.io.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:/utils-context-test.xml"})
 public class FileUtilsTest {
-    private Logger logger = LoggerFactory.getLogger(FileUtilsTest.class);
     
     private String fileName;
     private String fileExtension;
@@ -68,13 +65,12 @@ public class FileUtilsTest {
 
     @Test
     public void closeBufferedReaderTest(){
-        String currentLine;
         BufferedReader br;
         
         try {
             br = new BufferedReader(new InputStreamReader(this.inputStream, "UTF-8"));
             int lineCount = 0;
-            while ((currentLine = br.readLine()) != null) {
+            while (br.readLine() != null) {
                 lineCount++;
             }
             
@@ -82,9 +78,7 @@ public class FileUtilsTest {
                 
             this.fileUtils.closeBufferedReader(br);
             Assert.assertTrue(true);
-        } catch (IOException e) {
-            Assert.fail();
-        } catch (FileManipulationException e) {
+        } catch (IOException | FileManipulationException e) {
             Assert.fail();
         }
     }
@@ -92,7 +86,8 @@ public class FileUtilsTest {
     @Test
     public void streamToStringTest() throws FileManipulationException {
         String string = this.fileUtils.streamToString(this.inputStream);
-        logger.debug("File content on string form: " + string);
+        Assert.assertNotNull(string);
+        Assert.assertEquals("new testNEW TESTNEWTEST", string);
     }
 
     @Test

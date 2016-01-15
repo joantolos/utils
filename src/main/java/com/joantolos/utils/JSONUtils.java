@@ -1,6 +1,5 @@
 package com.joantolos.utils;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
@@ -9,13 +8,11 @@ import java.util.ArrayList;
  */
 public interface JSONUtils {
 
-    public String objectToJson(Object o);
+    String objectToJson(Object o);
 
-    public Object jsonToObject(String json, Class c);
+    Object jsonToObject(String json, Class c);
 
-    public Object jsonToObject(String json, Type t);
+    ArrayList<Object> objectListJsonToObjectList(String objectListJSON);
 
-    public ArrayList<Object> objectListJsonToObjectList(String objectListJSON);
-
-    public String objectListToObjectListJson(ArrayList<Object> objectList);
+    String objectListToObjectListJson(ArrayList<Object> objectList);
 }

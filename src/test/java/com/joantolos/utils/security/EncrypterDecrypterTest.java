@@ -27,7 +27,7 @@ public class EncrypterDecrypterTest {
     
     @Before
     public void setUp(){
-        this.somePassword="business.mail.sender@gmail.com";
+        this.somePassword="1234";
     }
     
     @After

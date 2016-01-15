@@ -6,6 +6,7 @@ import com.joantolos.utils.StringUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 @Component
 public class StringUtilsImpl implements StringUtils {
@@ -24,18 +25,12 @@ public class StringUtilsImpl implements StringUtils {
     }
 
     public String firstLetterLowerCase(String s){
-        StringBuilder sb = new StringBuilder();
-        sb.append(s.substring(0,1).toLowerCase());
-        sb.append(s.substring(1));
-
-        return sb.toString();
+        return s.substring(0, 1).toLowerCase() + s.substring(1);
     }
 
     public ArrayList<String> stringArrayToArrayList(String[] array){
         ArrayList<String> arrayList = new ArrayList<>();
-        for(String a : array){
-            arrayList.add(a);
-        }
+        Collections.addAll(arrayList, array);
         return arrayList;
     }
 

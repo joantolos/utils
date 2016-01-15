@@ -7,8 +7,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -22,8 +20,6 @@ import java.util.ArrayList;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:/utils-context-test.xml"})
 public class StringUtilsTest {
-
-    private Logger logger = LoggerFactory.getLogger(StringUtilsTest.class);
 
     @Autowired
     StringUtils stringUtils;
@@ -48,19 +44,19 @@ public class StringUtilsTest {
     @Test
     public void toCamelCaseTest(){
         String manipulatedString = this.stringUtils.toCamelCase(this.test, " ");
-        logger.info(manipulatedString);
+        Assert.assertEquals("someTextWithNoFormatWhatHowever", manipulatedString);
     }
 
     @Test
     public void toProperCaseTest(){
         String manipulatedString = this.stringUtils.toProperCase(this.test);
-        logger.info(manipulatedString);
+        Assert.assertEquals("Some text with no format what however", manipulatedString);
     }
 
     @Test
     public void firstLetterLowerCaseTest(){
         String manipulatedString = this.stringUtils.firstLetterLowerCase(this.stringUtils.toProperCase(this.test));
-        logger.info(manipulatedString);
+        Assert.assertEquals("some text with no format what however", manipulatedString);
     }
 
     @Test

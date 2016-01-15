@@ -10,13 +10,13 @@ import java.util.ArrayList;
  */
 public interface StringUtils {
 
-    public String toCamelCase(String s, String delimiter);
+    String toCamelCase(String s, String delimiter);
 
-    public String toProperCase(String s);
+    String toProperCase(String s);
 
-    public String firstLetterLowerCase(String s);
+    String firstLetterLowerCase(String s);
 
-    public ArrayList<String> stringArrayToArrayList(String[] array);
+    ArrayList<String> stringArrayToArrayList(String[] array);
 
-    public String replaceLastChars(String originalString, String replaceString, int endOffset) throws StringManipulationException;
+    String replaceLastChars(String originalString, String replaceString, int endOffset) throws StringManipulationException;
 }

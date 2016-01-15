@@ -4,15 +4,22 @@
 	
 	<groupId>com.joantolos.utils</groupId>
 	<artifactId>utils</artifactId>
-	<version>15.0.1-SNAPSHOT</version>
+	<version>2.0</version>
 	<packaging>jar</packaging>
-	<name>--- Utils -> All-In-One Module</name>
+	<name>Java Utils -> Strings, Files and Json</name>
 
 	<properties>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<servlet.version>2.5</servlet.version>
 		<jackson.version>1.9.10</jackson.version>
 		<spring.version>4.0.5.RELEASE</spring.version>
+        <junit.version>4.10</junit.version>
+        <slf4j.version>1.7.10</slf4j.version>
+        <gson.version>2.2.4</gson.version>
+        <apache.poi.version>3.10-FINAL</apache.poi.version>
+        <jasypt.version>1.9.2</jasypt.version>
+        <guava.version>18.0</guava.version>
 	</properties>
 
 	<dependencies>
@@ -20,65 +27,67 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
-		</dependency>
-
-		<!-- Logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.10</version>
 		</dependency>
 		
 		<!-- Third Party dependencies -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.2.4</version>
+            <version>${gson.version}</version>
         </dependency>
+
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.10-FINAL</version>
+			<version>${apache.poi.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.10-FINAL</version>
+            <version>${apache.poi.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.jasypt</groupId>
 			<artifactId>jasypt</artifactId>
-			<version>1.9.2</version>
+			<version>${jasypt.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>18.0</version>
+			<version>${guava.version}</version>
 		</dependency>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -86,8 +95,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
@@ -103,4 +112,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
